@@ -2,6 +2,29 @@
   margin-bottom: 70px; /* Espacio inferior para evitar que el contenido se solape con la barra de navegación */
 }
 
+.barrasuperior {
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+}
+
+.barrafiltro{
+  align-items: center;
+}
+
+h1{
+  display: flex;
+}
+
+.bi-grid,
+.bi-clock,
+.bi-calendar-check,
+.bi-patch-plus {
+  font-size: 1.5em;
+}
+
 .navbar {
   background-color: #0d6efd; /* Fondo azul */
   color: #ffffff;
@@ -61,3 +84,4 @@
   padding: 10px 20px;
   cursor: pointer;
 }
+
