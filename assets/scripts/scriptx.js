@@ -40,13 +40,21 @@ function cargarDatos() {
             cardContainer.innerHTML = '';
 
             rows.forEach(row => {
-                
+
+                const id = row[0];
+                const fecha = row[1];
+                const numPedido = row[2];
                 const numOrden = row[3];
+                const cliente = row[4];
+                const telefono = row[5];
                 const producto = row[6];
                 const descripcion = row[7];
                 const responsable = row[8];
-                const telefono = row[5];
-                const id = row[0];
+                const tarea = row[9];
+                const estado = row[10];
+                const observacion = row[11];
+                const drive = row[12];
+                
 
                 // Crear la tarjeta con interpolación de cadenas
                 const card = `
@@ -63,12 +71,14 @@ function cargarDatos() {
                 const cardContainer = document.querySelector('.card-container');
                 cardContainer.innerHTML += card;
             });
+            
         })
         .catch(error => {
             console.error('Error al cargar los datos:', error);
         });
 }
 
+//Función para Filtrar por Responsable de la tarjeta
 function filtrarTarjetasPorResponsable() {
     const selectResponsable = document.getElementById('selectResponsable');
     const responsableSeleccionado = selectResponsable.value.trim().toLowerCase();
@@ -86,6 +96,7 @@ function filtrarTarjetasPorResponsable() {
     });
 }
 
+//función para buscar dentro de las tarjetas
 const searchInput = document.querySelector('.search input');
 searchInput.addEventListener('input', buscarTarjetas);
 
@@ -103,6 +114,51 @@ function buscarTarjetas() {
         }
     });
 }
+
+function mostrarDetalles(id) {
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modal = document.querySelector('.modal');
+    const modalContent = document.querySelector('.modal-content');
+    const modalClose = document.querySelector('.modal-close');
+
+    // Obtener los datos adicionales de la API usando el ID
+    // Aquí puedes agregar tu lógica para obtener los datos adicionales de la API
+    // Puedes usar fetch o cualquier otra forma de obtener los datos
+
+    // Ejemplo de datos adicionales
+    const datosAdicionales = {
+        link: 'https://www.ejemplo.com',
+        qrCode: 'https://www.ejemplo.com/qr.png',
+        observacion: 'Esto es una observación adicional',
+    };
+
+    // Actualizar el contenido del modal con los datos adicionales
+    modalContent.innerHTML = `
+    <p>Enlace: <a href="${datosAdicionales.link}" target="_blank">${datosAdicionales.link}</a></p>
+    <img src="${datosAdicionales.qrCode}" alt="Código QR">
+    <p>Observación: ${datosAdicionales.observacion}</p>
+  `;
+
+    // Mostrar el modal
+    modalOverlay.style.display = 'flex';
+
+    // Cerrar el modal cuando se hace clic en el botón "Cerrar"
+    modalClose.addEventListener('click', () => {
+        modalOverlay.style.display = 'none';
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Cargar los datos al cargar la página
 window.addEventListener('load', cargarDatos);
