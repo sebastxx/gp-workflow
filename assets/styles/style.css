@@ -1,3 +1,6 @@
+.content {
+    margin-bottom: 70px; /* Espacio inferior para evitar que el contenido se solape con la barra de navegación */
+}
 
 .navbar {
     background-color: #0D6EFD; /* Fondo azul */
@@ -22,7 +25,7 @@
 
 .card {
 background-color: #fefefe;
-    border: 1px solid #dadada;
+    border: 1px solid;
     border-radius: 8px;
     padding: 10px;
     margin: 5px;
