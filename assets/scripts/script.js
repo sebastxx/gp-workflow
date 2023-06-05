@@ -12,49 +12,56 @@ function cargarDatos() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // Obtener los datos de la respuesta
             const rows = data.values;
-
-            // Obtener el contenedor de tarjetas
-            const cardContainer = document.querySelector('.card-container');
-            cardContainer.innerHTML = '';
-
-            rows.forEach(row => {
-                const numOrden = row[1];
-                const producto = row[2];
-                const descripcion = row[3];
-                const responsable = row[4];
-                const telefono = row[5];
-
-                // Crear la tarjeta
-                const card = document.createElement('div');
-                card.classList.add('card');
-
-                // Agregar contenido a la tarjeta
-                const numOrdenElement = document.createElement('h3');
-                numOrdenElement.textContent = `Número de orden: ${numOrden}`;
-                card.appendChild(numOrdenElement);
-
-                const productoElement = document.createElement('p');
-                productoElement.textContent = `producto: ${producto}`;
-                card.appendChild(productoElement);
-
-                const descripcionElement = document.createElement('p');
-                descripcionElement.textContent = `Descripción: ${descripcion}`;
-                card.appendChild(descripcionElement);
-
-                const responsableElement = document.createElement('p');
-                responsableElement.textContent = `Realizado por: ${responsable}`;
-                card.appendChild(responsableElement);
-
-                // Agregar la tarjeta al contenedor
-                cardContainer.appendChild(card);
-            });
+            tarjeta();
         })
         .catch(error => {
             console.error('Error al cargar los datos:', error);
         });
 }
 
+function tarjeta() {
+    // Obtener los datos de la respuesta
+    
+
+    // Obtener el contenedor de tarjetas
+    const cardContainer = document.querySelector('.card-container');
+    cardContainer.innerHTML = '';
+
+    rows.forEach(row => {
+        const numOrden = row[1];
+        const producto = row[2];
+        const descripcion = row[3];
+        const responsable = row[4];
+        const telefono = row[5];
+
+        // Crear la tarjeta
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        // Agregar contenido a la tarjeta
+
+        const productoElement = document.createElement('h3');
+        productoElement.textContent = `Producto: ${producto}`;
+        card.appendChild(productoElement);
+
+        const numOrdenElement = document.createElement('p');
+        numOrdenElement.textContent = `Número de orden: ${numOrden}`;
+        card.appendChild(numOrdenElement);
+
+        const descripcionElement = document.createElement('p');
+        descripcionElement.textContent = `Descripción: ${descripcion}`;
+        card.appendChild(descripcionElement);
+
+        const responsableElement = document.createElement('p');
+        responsableElement.textContent = `Realizado por: ${responsable}`;
+        card.appendChild(responsableElement);
+
+        // Agregar la tarjeta al contenedor
+        cardContainer.appendChild(card);
+    });
+}
+
 // Cargar los datos al cargar la página
 window.addEventListener('load', cargarDatos);
+
