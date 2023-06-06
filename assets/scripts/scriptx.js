@@ -34,12 +34,12 @@ function cargarDatos() {
                 // Crear la tarjeta con interpolación de cadenas
                 const card = `
                     <div class="card ${responsable.toLowerCase()}">
-                        <h3>Producto: ${producto}</h3>
-                        <p>Número de orden: ${numOrden}</p>
-                        <p>Descripción: ${descripcion}</p>
+                        <h3>${producto}</h3>
+                        <p>Cliente: ${cliente}</p>
+                        <p>${descripcion}</p>
                         <p class="responsable" data-responsable="${responsable}">Realizado por: ${responsable}</p>
-                        <p>Teléfono:  <a href="tel:${telefono}">Llamar (${telefono})</a></p>
-                        <a href="#" class="btn btn-primary" onclick="mostrarDetalles('${id}'); return false;">Ver más</a>
+                        <p>Teléfono: <a href="tel:${telefono}">Llamar (${telefono})</a></p>
+                        <a href="#" target="_blank" class="btn btn-primary" onclick="mostrarDetalles('${id}'); return false;">Ver más</a>
                     </div>
                 `;
                 // Agregar la tarjeta al contenedor

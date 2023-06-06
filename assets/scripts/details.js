@@ -8,7 +8,7 @@ const API_KEY = 'AIzaSyC6UvksN7iFu6HetUO0gAt9cgoZPZfNDno';
 
 // Obtener los detalles del ID proporcionado
 function obtenerDetalles() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Hoja!A2:L?key=${API_KEY}`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Hoja!A2:M?key=${API_KEY}`;
 
     fetch(url)
         .then(response => response.json())
@@ -36,22 +36,89 @@ function obtenerDetalles() {
                 // Mostrar los detalles en la página
                 const detailsContainer = document.getElementById('details');
                 detailsContainer.innerHTML = `
-                            <h2>Producto: ${producto}</h2>
-                            <p>ID: ${id}</p>
-                            <p>Cliente: ${cliente}</p>
-                            <p>Fecha: ${fecha}</p>
-                            <p>Número de orden: ${numOrden}</p>
-                            <p>Número de pedido: ${numPedido}</p>
-                            <p>Descripción: ${descripcion}</p>
-                            <p>Realizado por: ${responsable}</p>
-                            <p>Tarea: ${tarea}</p>
-                            <p>Teléfono: <a href="tel:${telefono}">Llamar (${telefono})</a></p>
-                            <p>Estado: ${estado}</p>
-                            <p>Observación: ${observacion}</p>
-                            <p>Enlace al Drive: <a href="${drive}" target="_blank">Ver en Drive</a></p>
-                            <img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://127.0.0.1:5500/details.html?id=${id}&amp;choe=UTF-8" />
-                            <a href="./index.html" class="btn btn-primary">Volver</a>
-                        `;
+                <h2>Detalles del producto</h2>
+
+<table>
+    <tr>
+        <th>Producto</th>
+        <td><h4>${producto}</h4></td>
+    </tr>
+    <tr>
+        <th>ID</th>
+        <td>${id}</td>
+    </tr>
+    <tr>
+        <th>Cliente</th>
+        <td>${cliente}</td>
+    </tr>
+    <tr>
+        <th>Fecha</th>
+        <td>${fecha}</td>
+    </tr>
+    <tr>
+        <th>Número de orden</th>
+        <td>${numOrden}</td>
+    </tr>
+    <tr>
+        <th>Número de pedido</th>
+        <td>${numPedido}</td>
+    </tr>
+    <tr>
+        <th>Descripción</th>
+        <td>${descripcion}</td>
+    </tr>
+    <tr>
+        <th>Realizado por</th>
+        <td>${responsable}</td>
+    </tr>
+    <tr>
+        <th>Tarea</th>
+        <td>${tarea}</td>
+    </tr>
+    <tr>
+        <th>Teléfono</th>
+        <td><a href="tel:${telefono}">Llamar (${telefono})</a></td>
+    </tr>
+    <tr>
+        <th>Estado</th>
+        <td>${estado}</td>
+    </tr>
+    <tr>
+        <th>Observación</th>
+        <td>${observacion}</td>
+    </tr>
+    <tr>
+        <th>Enlace al Drive</th>
+        <td><a href="${drive}" target="_blank">${drive}</a></td>
+    </tr>
+    <tr>
+        <th>Acceso directo</th>
+        <td><img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://127.0.0.1:5500/details.html?id=${id}&amp;choe=UTF-8" alt="QR Code">
+        </td>
+</table>
+
+<a href="./index.html" class="btn btn-primary">Volver</a>
+                `
+                
+                
+                
+                //`
+                //             <h2>Producto: ${producto}</h2>
+                //             <p>ID: ${id}</p>
+                //             <p>Cliente: ${cliente}</p>
+                //             <p>Fecha: ${fecha}</p>
+                //             <p>Número de orden: ${numOrden}</p>
+                //             <p>Número de pedido: ${numPedido}</p>
+                //             <p>Descripción: ${descripcion}</p>
+                //             <p>Realizado por: ${responsable}</p>
+                //             <p>Tarea: ${tarea}</p>
+                //             <p>Teléfono: <a href="tel:${telefono}">Llamar (${telefono})</a></p>
+                //             <p>Estado: ${estado}</p>
+                //             <p>Observación: ${observacion}</p>
+                //             <p>Enlace al Drive: <a href="${drive}" target="_blank">Ver en Drive</a></p>
+                //             <img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://127.0.0.1:5500/details.html?id=${id}&amp;choe=UTF-8" />
+                //             <a href="./index.html" class="btn btn-primary">Volver</a>
+                //         `;
             } else {
                 // No se encontró ningún registro con el ID proporcionado
                 const detailsContainer = document.getElementById('details');
